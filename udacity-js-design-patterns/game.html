@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+            var cats = [
+                {image: 'cat.jpg', name: 'Bob', times: 0}, 
+                {image: 'cat-2.jpg', name: 'Bob 2', times: 0},
+                {image: 'cat-3.jpg', name: 'Tom and And', times: 0}
+            ]; 
+
+            window.onload = function(){
+                for(var i = 0; i < cats.length; i++) {
+                    var counter_times_span = document.createElement('span');                    
+                    counter_times_span.className = 'counter-times';                                         
+                    counter_times_span.appendChild(document.createTextNode(cats[0].times));
+
+                    var counter_div = document.createElement('div');
+                    counter_div.className = 'counter';
+                    counter_div.appendChild(counter_times_span);
+                    counter_div.appendChild(document.createTextNode(' clicks!'));
+                    
+                    var cat_image = document.createElement('img');
+                    cat_image.src = cats[i].image;
+
+                    var cat_clicker_div = document.createElement('div');
+                    cat_clicker_div.className = 'cat-clicker';
+                    cat_clicker_div.appendChild(cat_image);
+
+                    var cat_boxe_div = document.createElement('div');
+                    cat_boxe_div.className = 'cat-boxe';
+                    cat_boxe_div.appendChild(counter_div);
+                    cat_boxe_div.appendChild(cat_clicker_div);
+
+                    cat_boxe_div.onclick = function() {
+                        var timer_element = this.getElementsByClassName('counter-times')[0];
+                        var times = parseInt(timer_element.innerHTML);
+                        timer_element.innerHTML = times + 1;                    
+                        console.log(timer_element)                        
+                    }
+
+                    document.getElementById('cat-clicker-app').appendChild(cat_boxe_div);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="cat-clicker-app"></div>       
+    </body>
+</html>
