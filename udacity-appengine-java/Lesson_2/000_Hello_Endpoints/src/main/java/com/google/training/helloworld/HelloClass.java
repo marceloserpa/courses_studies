@@ -1,6 +1,7 @@
 package com.google.training.helloworld;
 
 public class HelloClass {
+	
     public String message = "Hello World";
 
     public HelloClass () {
@@ -12,5 +13,9 @@ public class HelloClass {
 
     public String getMessage() {
         return message;
+    }
+    
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

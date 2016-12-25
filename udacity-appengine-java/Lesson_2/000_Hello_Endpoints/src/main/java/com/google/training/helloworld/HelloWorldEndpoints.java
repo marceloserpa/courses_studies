@@ -30,4 +30,16 @@ public class HelloWorldEndpoints {
     public HelloClass sayHelloByName (@Named("name") String name) {
         return new HelloClass(name);
     }
+    
+    // My Custom Endpoint
+    @ApiMethod(
+		name = "greetByPeriod", 
+		path = "greetByPeriod",
+        httpMethod = HttpMethod.GET
+    )
+    public HelloClass greetByPeriod (@Named("name") String name, @Named("period") String period) {
+    	GreetingMaker maker = new GreetingMaker();
+        return maker.createGreeting(name, period); 
+    }
+    
 }
